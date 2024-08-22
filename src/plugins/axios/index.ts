@@ -12,11 +12,11 @@ axiosIns.interceptors.request.use(onFulfilled, (error) =>
 
 axiosIns.interceptors.response.use((response) => response, onRejected);
 
-function onFulfilled(config) {
+function onFulfilled(config: any) {
   return config;
 }
 
-async function onRejected(error) {
+async function onRejected(error: any) {
   const { config: originalRequest, response } = error;
 
   if (response && response.status === 401) {
