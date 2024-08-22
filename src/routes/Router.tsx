@@ -1,17 +1,17 @@
-import { BrowserRouter as Router, useRoutes } from "react-router-dom";
-import NotFound from "@pages/NotFound";
-import Todos from "@pages/Todos";
-import Home from "@pages/Home";
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
+import NotFound from '@pages/NotFound';
+import Todos from '@pages/Todos';
+import Home from '@pages/Home';
 
 const AppRoutes = () => {
   return useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "/todos", element: <Todos /> },
-    { path: "*", element: <NotFound /> },
+    { path: '/', element: <Home /> },
+    { path: '/todos', element: <Todos /> },
+    { path: '*', element: <NotFound /> },
   ]);
 };
 
-function DefineRouter() {
+const DefineRouter = () => {
   return (
     <>
       <Router>
@@ -19,6 +19,6 @@ function DefineRouter() {
       </Router>
     </>
   );
-}
+};
 
 export default DefineRouter;

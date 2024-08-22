@@ -1,7 +1,7 @@
-import "@styles/style.scss";
-import {ReactNode} from "react";
+import '@styles/style.scss';
+import { ReactNode } from 'react';
 
-function DefaultLayout({ children }: { children: ReactNode }) {
+const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="container">
@@ -12,6 +12,6 @@ function DefaultLayout({ children }: { children: ReactNode }) {
       <main>{children}</main>
     </>
   );
-}
+};
 
 export default DefaultLayout;

@@ -1,18 +1,18 @@
-import { DataGrid } from "@mui/x-data-grid";
-import { getTodos } from "@services/todos_service";
+import { DataGrid } from '@mui/x-data-grid';
+import { getTodos } from '@services/todos_service';
 
 const columns = [
-  { field: "id", headerName: "ID", width: 70 },
-  { field: "userId", headerName: "ID пользователя", width: 130 },
-  { field: "title", headerName: "Заголовок", width: 130 },
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'userId', headerName: 'ID пользователя', width: 130 },
+  { field: 'title', headerName: 'Заголовок', width: 130 },
 ];
 
 const rows = await getTodos();
 
-function Todos() {
+const Todos = () => {
   return (
     <>
-      <div style={{ height: "calc(100dvh - 300px)", width: "100%" }}>
+      <div style={{ height: 'calc(100dvh - 300px)', width: '100%' }}>
         <DataGrid
           loading={!rows}
           rows={rows}
@@ -27,6 +27,6 @@ function Todos() {
       </div>
     </>
   );
-}
+};
 
 export default Todos;

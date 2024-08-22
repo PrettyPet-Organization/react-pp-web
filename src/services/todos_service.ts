@@ -1,4 +1,4 @@
-import { todosRepository } from "@repositories";
+import { todosRepository } from '@repositories';
 
 export async function getTodos() {
   try {
