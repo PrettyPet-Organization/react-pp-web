@@ -1,5 +1,7 @@
 import { DataGrid } from '@mui/x-data-grid';
 import { getTodos } from '@services/todos_service';
+import { useContext, useEffect, useState } from 'react';
+import { StoreContext } from '@layouts/providers/storeProvider.tsx';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -7,15 +9,24 @@ const columns = [
   { field: 'title', headerName: 'Заголовок', width: 130 },
 ];
 
-const rows = await getTodos();
-
 const Todos = () => {
+  const { todoStore } = useContext(StoreContext);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getTodos().then(data => {
+      todoStore.setTodoList(data);
+      setIsLoading(false);
+    });
+  }, []);
+
   return (
     <>
       <div style={{ height: 'calc(100dvh - 300px)', width: '100%' }}>
         <DataGrid
-          loading={!rows}
-          rows={rows}
+          loading={isLoading}
+          rows={todoStore.todoList.value}
           columns={columns}
           initialState={{
             pagination: {

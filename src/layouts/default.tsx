@@ -1,5 +1,6 @@
 import '@styles/style.scss';
 import { ReactNode } from 'react';
+import { StoreProvider } from '@layouts/providers/storeProvider.tsx';
 
 const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -9,7 +10,9 @@ const DefaultLayout = ({ children }: { children: ReactNode }) => {
         <p>пет-проект</p>
       </div>
 
-      <main>{children}</main>
+      <main>
+        <StoreProvider>{children}</StoreProvider>
+      </main>
     </>
   );
 };
